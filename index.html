@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script>
+		function validacion() {
+			valor = document.getElementById("cui").value;
+			if ( valor == null || valor.length != 8 || !(/^([0-9])*$/).test(valor) ) {
+				alert('[ERROR] El campo cui debe tener 8 numeros');
+				return false;
+			}
+			valor = document.getElementById("clave").value;
+			if ( valor == null || valor.length == 0 ) {
+				alert('[ERROR] La clave no debe estar vacia');
+				return false;
+			}
+			return true;
+		}
+	</script>
+	</head>
+	<body>
+		<h2> LOGIN </h2>
+		<form action="servlet/LoginServlet" method="POST" onsubmit="return validacion()">
+			<label for="cui"><b> CUI: </b></label><br>
+			<input type="text" id="cui" name="cui"><br><br>
+			<label for="clave"><b> CLAVE: </b></label><br>
+			<input type="text" id="clave" name="clave"><br><br>
+			
+			<input type="submit" value="Enviar datos">
+			
+		</form>
+	</body>
+</html>
